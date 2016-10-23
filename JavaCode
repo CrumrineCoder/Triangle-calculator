@@ -1,0 +1,55 @@
+import java.util.Scanner; 
+public class project3
+{   
+    public static void main(String[] args)
+    {
+        Scanner in = new Scanner(System.in);
+        System.out.println("X coord point 1");
+        int x1 = in.nextInt();
+        System.out.println("Y coord point 1");
+        int y1 = in.nextInt();
+        System.out.println("X coord point 2");
+        int x2 = in.nextInt();
+        System.out.println("Y coord point 2");
+        int y2 = in.nextInt(); 
+        System.out.println("X coord point 3");
+        int x3 = in.nextInt();
+        System.out.println("Y coord point 3");
+        int y3 = in.nextInt();
+ 
+        double distanceBetween1and2 = Math.sqrt( Math.pow( (x2 - x1), 2 ) + Math.pow( (y2-y1), 2) );
+        double distanceBetween2and3 = Math.sqrt( Math.pow( (x3 - x2), 2 ) + Math.pow( (y3-y2), 2) );
+        double distanceBetween1and3 = Math.sqrt( Math.pow( (x3 - x1), 2 ) + Math.pow( (y3-y1), 2) );
+        
+        double a = distanceBetween1and2;
+        double b = distanceBetween2and3;
+        double c = distanceBetween1and3;
+        double A = (Math.pow(b,2) + Math.pow(c,2) - Math.pow(a,2)) / (2*b*c);
+        A = Math.acos(A) * (180/Math.PI);
+        
+        double B = (Math.pow(c,2) + Math.pow(a,2) - Math.pow(b,2)) / (2*a*c);
+        B = Math.acos(B) * (180/Math.PI);
+        double C = 180 - (A+B);
+        
+        double perimeter = a + b + c; 
+        double semiPerimeter = perimeter / 2; 
+        double s = semiPerimeter; 
+        double area = Math.sqrt( s*(s-a)*(s-b)*(s-c));
+        
+        System.out.printf("Length between points 1 and 2 is: %3.2f", a);
+        System.out.println();
+        System.out.printf("Length between points 2 and 3 is: %3.2f", b);
+        System.out.println();
+        System.out.printf("Length between points 1 and 3 is: %3.2f", c);
+        System.out.println();
+        System.out.printf("Angle at BAC is: %3.2f", A);
+        System.out.println();
+        System.out.printf("Angle at ABC is: %3.2f", B);
+        System.out.println();
+        System.out.printf("Angle at ACB is: %3.2f", C);
+        System.out.println();
+        System.out.printf("The perimeter is: %3.2f", perimeter);
+        System.out.println();
+        System.out.printf("The area is: %3.2f ", area);
+    }
+}
